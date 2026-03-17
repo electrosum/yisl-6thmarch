@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams Projects - YISL - 6th March 2026</title>
+<style>
+
+/* =====================================================
+   COLOR PALETTE
+   ===================================================== */
+:root{
+    --dark-blue:#0B2D72;
+    --mid-blue:#0992C2;
+    --light-cyan:#0AC4E0;
+    --cream:#FFFFFF;
+}
+
+/* =====================================================
+   GLOBAL STYLES
+   ===================================================== */
+*{
+    margin:0;
+    padding:0;  
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #ffffff;
+    color: var(--cream);
+    line-height:1.6;
+}
+
+/* =====================================================
+   STICKY NAVBAR
+   ===================================================== */
+.navbar{
+    position:sticky;
+    top:0;
+    background:#ffffff;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    border-bottom:3px solid #cccccc;
+    z-index:1000;
+}
+
+.navbar h2{
+    background: #f94f5e;
+    color:#ffffff;
+    letter-spacing:1px;
+    display:inline-block;
+    padding:8px 8px;
+    border-radius:25px;
+    font-size:20px;
+    font-weight:650;
+    width:fit-content;
+}
+
+.navbar-center{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    background: #f94f5e;
+    color:#ffffff;
+    font-size:20px;
+    font-weight:650;
+    letter-spacing:1px;
+    text-align:center;
+    padding:8px 20px;
+    border-radius:25px;
+    width:fit-content;
+}
+
+.navbar-date{
+    background: #f94f5e;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 650;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-left:auto;
+}
+
+/* =====================================================
+   NAVBAR MOBILE RESPONSIVE
+   ===================================================== */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 8px 6px;
+        gap: 4px;
+    }
+
+    .navbar h2,
+    .navbar-center,
+    .navbar-date {
+        font-size: 11px;
+        padding: 6px 8px;
+        letter-spacing: 0;
+    }
+
+    .navbar-center {
+        position: static;
+        transform: none;
+    }
+
+    .navbar-date {
+        margin-left: 0;
+    }
+}
+
+
+/* =====================================================
+   HERO BANNER
+   ===================================================== */
+.hero-banner{
+    width:100%;
+    height:450px;
+    background-color: #800080;
+    position:relative;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    padding: 0 80px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.hero-banner .hero-img{
+    height: 400px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.hero-text{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+}
+
+.hero-title{
+    color:#ffffff;
+    font-size:72px;
+    font-weight:900;
+    margin-bottom:16px;
+    text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-subtitle{
+    color:#ffffff;
+    font-size:48px;
+    font-weight:800;
+    margin-bottom:12px;
+    text-shadow:0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-description{
+    color:#f0f0f0;
+    font-size:22px;
+    font-weight:500;
+    text-shadow:0 1px 4px rgba(0,0,0,0.4);
+}
+
+@media(max-width:700px){
+    .hero-banner{
+        height:auto;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding: 30px 24px;
+        gap: 20px;
+    }
+    .hero-text{
+        align-items:center;
+        text-align:center;
+        order: 1;
+    }
+    .hero-banner .hero-img{
+        height: 180px;
+        order: 2;
+    }
+    .hero-title{
+        font-size:32px;
+    }
+    .hero-subtitle{
+        font-size:20px;
+    }
+    .hero-description{
+        font-size:15px;
+    }
+}
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding-top:40px;
+}
+
+/* =====================================================
+   TEAM PROJECT CARD
+   ===================================================== */
+.team-card{
+
+    /* spacing between rows */
+    margin-bottom:50px;
+
+    /* VR styled card */
+    background:var(--mid-blue);
+    border:2px solid var(--light-cyan);
+    border-radius:12px;
+
+    /* subtle 3D effect */
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(10,196,224,0.2);
+
+    padding:35px;
+}
+
+/* =====================================================
+   PROJECT TITLE
+   ===================================================== */
+.project-title{
+    font-size:28px;
+    margin-bottom:15px;
+    color:var(--white);
+}
+
+/* =====================================================
+   PROJECT TAGLINE
+   ===================================================== */
+.project-tagline{
+    font-size:20px;
+    color:var(--cream);
+    font-style:italic;
+    margin-bottom:20px;
+    
+}
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+.project-description{
+    margin-bottom:20px;
+}
+
+.project-description h2{
+    color:var(--dark-blue);
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+/* =====================================================
+   TEAM NAME
+   ===================================================== */
+.team-name{
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:10px;
+    color:var(--light-cyan);
+}
+
+/* =====================================================
+   TEAM MEMBER LIST
+   ===================================================== */
+.team-members{
+    margin-bottom:25px;
+    padding-left:18px;
+}
+
+.team-members li{
+    margin-bottom:5px;
+}
+
+/* =====================================================
+   TEAM MEMBER ROW
+   ===================================================== */
+.team-members-row{
+    margin-bottom:25px;
+    color:var(--cream);
+    line-height:1.4;
+}
+
+.team-members-row strong{
+    color:var(--light-cyan);
+}
+
+/* =====================================================
+   RESPONSIVE VIDEO CONTAINER
+   ===================================================== */
+.video-container{
+
+    /* responsive trick */
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+
+    border:3px solid var(--light-cyan);
+    border-radius:10px;
+
+    overflow:hidden;
+
+    /* glowing VR effect */
+    box-shadow:
+        0 0 20px rgba(10,196,224,0.6),
+        0 10px 20px rgba(0,0,0,0.5);
+}
+
+.video-container iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* =====================================================
+   VIDEO LINK PLACEHOLDER
+   ===================================================== */
+.video-link-placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    padding:40px 20px;
+    text-align:center;
+    background:linear-gradient(135deg, var(--dark-blue), var(--mid-blue));
+}
+
+.video-link-placeholder h3{
+    color:var(--light-cyan);
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.video-link-placeholder p{
+    color:var(--cream);
+    margin-bottom:20px;
+}
+
+.video-link{
+    background:var(--light-cyan);
+    color:var(--dark-blue);
+    padding:12px 30px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:background 0.3s ease, transform 0.2s ease;
+}
+
+.video-link:hover{
+    background:var(--cream);
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* =====================================================
+   TEAM CARD COLOR VARIANTS (Blue family)
+   ===================================================== */
+.team-card-1{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+.team-card-2{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+.team-card-3{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+.team-card-4{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+.team-card-5{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+.team-card-6{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+.team-card-7{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+
+.team-card-8{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+.team-card-9{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+
+.team-card-10{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+.team-card-11{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+
+.team-card-12{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+.team-card-13{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+
+.team-card-14{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+.team-card-15{
+    background: #7f007f;
+    border-color: #a020a0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(127,0,127,0.25);
+}
+
+.team-card-16{
+    background: #5c3e94;
+    border-color: #8a65c4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 15px rgba(92,62,148,0.25);
+}
+
+/* =====================================================
+   RESPONSIVE TEXT
+   ===================================================== */
+@media(max-width:700px){
+
+    .project-title{
+        font-size:22px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+<nav class="navbar">
+    <h2>YISL Workshop</h2>
+    <div class="navbar-center">AR/VR</div>
+    <div class="navbar-date">6 March 2026</div>
+</nav>
+
+<!-- =====================================================
+     HERO BANNER
+     ===================================================== -->
+<div class="hero-banner">
+    <div class="hero-text">
+        <h1 class="hero-title">TEAMS PROJECTS</h1>
+        <p class="hero-subtitle">CUSAT Cochin, Kerala</p>
+        <p class="hero-description">6 March 2026</p>
+    </div>
+    <img src="guy-wearing-vr-goggles-neon-sign.png" alt="VR Goggles" class="hero-img">
+</div>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     TEAM 1
+     ===================================================== -->
+<section class="team-card team-card-1">
+    <h1 class="project-title">Project Title: Neon Beats</h1>
+    <div class="project-tagline">Tagline: Drum at the speed of light</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        A virtual drumset that you can play anywhere.
+    </p>
+
+    <div class="team-name">
+        Team Name: Team Delulu
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Hafiz Hussain, Dilshan, Jayasurya, Sameera, Ajayakrishnan, Megha, Karthik, Ajay, Hana, Amal
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/4SBQW7Pe1UU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 2
+     ===================================================== -->
+<section class="team-card team-card-2">
+    <h1 class="project-title">Project Title: Stellar explorer</h1>
+    <div class="project-tagline">Tagline: Discover the secrets of stars</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        Stellar Explorer is an immersive space exploration experience that allows users to travel through the universe virtually and learn about celestial bodies in an interactive way. Using technologies like AR/VR, users can explore planets, stars, galaxies, and space missions as if they are actually in space. The project provides detailed information, 3D visualizations, and simulations of cosmic phenomena, helping users understand astronomy and space science in a more engaging and educational manner. It aims to make learning about the universe exciting, interactive, and accessible to everyone.
+    </p>
+
+    <div class="team-name">
+        Team Name: Jarviz
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Pavan Sajeev K K, Swathi T, Sania Prasad, Ansan Mathew, Nandana P S, Ann Evelin Vincent, Irene Sara Philipose, Savan Thiruthiyil, Midhun Sivadas, B. Prudhvi john
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/VYNniwqMtSs"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 2
+     ===================================================== -->
+     TEAM 15
+     ===================================================== -->
+<section class="team-card team-card-15">
+    <h1 class="project-title">Project Title: VR Navigation</h1>
+    <div class="project-tagline">Tagline: Reality, Enhanced with Directions</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        AR Campus Navigation uses augmented reality to provide an immersive way of navigating large spaces like university campuses. Instead of reading a 2D map, users can see 3D arrows, labeled buildings, and directional paths directly in their environment. This makes navigation faster, more intuitive, and more engaging for students and visitors.
+    </p>
+
+    <div class="team-name">
+        Team Name: Yedu Hrishikesh S
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Yedu Hrishikesh S, Christy Jay Varghese, Devadath M, Ayush Boban, Dinu Jaison, Adithyan Prarath
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/FjhHddw2oSU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 3
+     ===================================================== -->
+<section class="team-card team-card-3">
+    <h1 class="project-title">Project Title: Shage fear helper</h1>
+    <div class="project-tagline">Tagline: No more fear</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+    </p>
+
+    <div class="team-name">
+        Team Name: Strawhats2
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Karthik p, Gaurishankar s, Christeena justin, Jithu k, Ihsaan, Binil george, Angelina, Shaun, Felix biju
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Q1mCaSgN7sM"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 4
+     ===================================================== -->
+<section class="team-card team-card-4">
+    <h1 class="project-title">Project Title: Geetham</h1>
+    <div class="project-tagline">Tagline: Step into the rhythm</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        When a user plays a song, the app: Analyzes the audio in real time. Extracts features like beat, bass, and frequency. Converts them into 3D AR visual effects. Displays them in the real environment through the camera.
+    </p>
+
+    <div class="team-name">
+        Team Name: StrawHats
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Ayishathul Rinsha P, Deva Nandan H, Firoz Zaman, Ebin Amson, Damian Antony, Jayadev Narayanan, Akshay Sunil, Akshay S, Deon Felix, Jijin Sreedhar
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/FcqRilDh100"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 5
+     ===================================================== -->
+<section class="team-card team-card-5">
+    <h1 class="project-title">Project Title: Immortal</h1>
+    <div class="project-tagline">Tagline: No one is really forgotten</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        A virtual reality environment to talk to the deceased
+    </p>
+
+    <div class="team-name">
+        Team Name: Fracture
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Adinath M C, Ann Maria Noble, Anna Keerthana Shaji, Layana V M, Kavya Sree B, Alan A A, Aman Zahi, Malavika V, Adith R Lal, Feeza
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/X7QBWF77fWo"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 6
+     ===================================================== -->
+<section class="team-card team-card-6">
+    <h1 class="project-title">Project Title: VR clothing store</h1>
+    <div class="project-tagline">Tagline: Style beyond reality</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        A virtual reality store that helps you try on clothes and help best choose the ones that suit you
+    </p>
+
+    <div class="team-name">
+        Team Name: The simulation squad
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Johaan Liju, Anjela Joseph, Alex Titus Paul, Aditya Dev, Christo B, Jaykrishnan, Jose Mathew, Akash
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/paMTvLXju_A"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 7
+     ===================================================== -->
+<section class="team-card team-card-7">
+    <h1 class="project-title">Project Title: Interactive Anatomy</h1>
+    <div class="project-tagline">Tagline: Dont just study, experience it!</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        Build a interactive anatomy of human body parts to visualise every part in detail and with depth
+    </p>
+
+    <div class="team-name">
+        Team Name: Team Spark
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Amal Joseph, Agraj P, Anjana K P, Anuvindha V N, Nandith P, Nithin V Mohan, Madhavan, Rijnas
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/CSExDCpJKdI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 8
+     ===================================================== -->
+<section class="team-card team-card-8">
+    <h1 class="project-title">Project Title: Holocart</h1>
+    <div class="project-tagline">Tagline: Diy virtual market</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+    </p>
+
+    <div class="team-name">
+        Team Name: Pixels
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Alfaaz Abdul jaleel k, Anant Agarwal, Harsh raj, Joel benoy, Jithin joy, Jins jose, Niranjan a pillai, Pallava thakur
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/vDN65IXXDsg"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 9
+     ===================================================== -->
+<section class="team-card team-card-9">
+    <h1 class="project-title">Project Title: Traffic Police Training Using Virtual Reality (VR)</h1>
+    <div class="project-tagline">Tagline: Sharper Skills. Safer Streets.</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        The Traffic Police Training using VR project is a virtual simulation that helps traffic officers practice managing road intersections in a safe digital environment. It simulates realistic traffic conditions with vehicles and pedestrians moving through a city junction. Users can control traffic flow using interactive controls such as allowing directional traffic, stopping vehicles, and enabling pedestrian crossings. This system provides a safe and effective way to train officers in traffic management and decision-making.
+    </p>
+
+    <div class="team-name">
+        Team Name: Cipher (Team No. 5)
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Krishna Kanhaiya, KV Anagha, Gagana Gopinath, Maryam Mohamed Yahya, Athidhi V, Athena P Dinesh, Anusree P
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/z8Oun6peugw"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 10
+     ===================================================== -->
+<section class="team-card team-card-10">
+    <h1 class="project-title">Project Title: Dissection simulator</h1>
+    <div class="project-tagline">Tagline: Explore life without killing it</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        In this prototype we facilitate the ability to anyone interested in learning the anatomy of any species without actually having to kill it. This prototype presents a lap setup with instruments for dissection which helps in understanding the different body parts of organisms. Therefore this platform would help preserve life while promoting education.
+    </p>
+
+    <div class="team-name">
+        Team Name: Cyberpunk
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Dasaradh, Ansaf, Akshin, Shein, Asish, Kavya
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/RyXNd0qZGPQ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 11
+     ===================================================== -->
+<section class="team-card team-card-11">
+    <h1 class="project-title">Project Title: Online showroom simulation</h1>
+    <div class="project-tagline">Tagline: Where the shop comes to you</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        Able to browse to through items without leaving the comfort of their own home
+    </p>
+
+    <div class="team-name">
+        Team Name: Octech
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Ashwin .P. Suresh, Roshin Carbalo, Sivapriya D, Sivapriya sivadasan, Amal Prince Thomas, Aron Prince Thomas, Sreelakshmi, Shaun Manuel
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/mz95KV8DX1E"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 12
+     ===================================================== -->
+<section class="team-card team-card-12">
+    <h1 class="project-title">Project Title: Interior Designing</h1>
+    <div class="project-tagline">Tagline: Design Your Dream place Before You Build It.</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        To build a VR Room with our furnitures
+    </p>
+
+    <div class="team-name">
+        Team Name: Meta Minds
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Abhiram S, Akhil A Anand, Adarsh P S, Alan John, Ajith Biju, Akshay Subhash, Ajisha B, Kiran Roy, Adithyan TP, Adith Chandran
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/xeB93v6K2OI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 14
+     ===================================================== -->
+<section class="team-card team-card-14">
+    <h1 class="project-title">Project Title: VR Furniture placement</h1>
+    <div class="project-tagline">Tagline: Furnish your reality</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        Arranging the furniture in VR to see how the furniture will be placed in a room
+    </p>
+
+    <div class="team-name">
+        Team Name: Orion
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Sachu Samuel, Nandu Krishna, Srinandan M S, Vishnu M K, Sabari Suresh
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_xjHzZ6prsw"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 15
+     ===================================================== -->
+<section class="team-card team-card-15">
+    <h1 class="project-title">Project Title: Delulu</h1>
+    <div class="project-tagline">Tagline: Find your virtual one</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        A virtual partner for your your miserable self. You no longer need to be all alone🥰🥰
+    </p>
+
+    <div class="team-name">
+        Team Name: Midhun Raaj
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Midhun Raaj, Delina Samson Lawrence, Sarath P J, Sangeerthana V K, Krishna Manoj, Ashka Vadakkedath, Adwaith M, Smithin E
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/GSwPyCmKKqE"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM 16
+     ===================================================== -->
+<section class="team-card team-card-16">
+    <h1 class="project-title">Project Title: Time Travel Adventure</h1>
+    <div class="project-tagline">Tagline: Journey to the Past</div>
+
+    <p class="project-description">
+        <h2>Description</h2>
+        A WebVR experience built using A-Frame 1.4.0 and hosted on GitHub Pages. Features a photogrammetry 3D model of the Roman Colosseum, interactive UI panels, and full Meta Quest 3 controller support.
+    </p>
+
+    <div class="team-name">
+        Team Name: XR Squad
+    </div>
+
+    <div class="team-members-row">
+        <strong>Team Members:</strong> Nivedh Shiva Kollarath, Sanjeev Kumar PR, Meljo C Jaison, Abhinand P, Saurabh Sathish
+    </div>
+
+    <h2>Prototype Video</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/k_oDVkfLuYc"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+    </div>
+
+</section>
+
+</div>
+
+</body>
+</html>
